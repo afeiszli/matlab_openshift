@@ -10,7 +10,8 @@ FROM ubuntu-debootstrap:trusty
 
 # Install the MCR dependencies and some things we'll need and download the MCR
 # from Mathworks -silently install it
-RUN apt-get -qq update && apt-get -qq install -y \
+RUN rm -vf /var/lib/apt/lists/* && \
+    apt-get -qq update && apt-get -qq install -y \
     unzip \
     xorg \
     wget \
